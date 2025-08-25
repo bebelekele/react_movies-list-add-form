@@ -18,7 +18,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (title.length > 0) {
+    if (title.trim().length > 0) {
       onAdd({
         title,
         description,
@@ -40,7 +40,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   };
 
   function checkForErrors(): boolean {
-    if (!title || !imgUrl || !imdbUrl || !imdbId) {
+    if (!title.trim() || !imgUrl.trim() || !imdbUrl.trim() || !imdbId.trim()) {
       return true;
     } else {
       return false;
